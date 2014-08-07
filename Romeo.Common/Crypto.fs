@@ -1,4 +1,4 @@
-﻿module Crypto
+﻿namespace Romeo.Common
 
 open System.Security.Cryptography
 

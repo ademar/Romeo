@@ -5,12 +5,12 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>49b03d11-d9f7-4cba-a749-d2542ce92867</ProjectGuid>
+    <ProjectGuid>d713a68d-cce7-44f0-87e9-690bf0bbd402</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>Romeo</RootNamespace>
-    <AssemblyName>Romeo</AssemblyName>
+    <RootNamespace>Romeo.Common</RootNamespace>
+    <AssemblyName>Romeo.Common</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <Name>Romeo.Client</Name>
+    <Name>Romeo.Common</Name>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -20,7 +20,7 @@
     <OutputPath>bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <WarningLevel>3</WarningLevel>
-    <DocumentationFile>bin\Debug\Romeo.XML</DocumentationFile>
+    <DocumentationFile>bin\Debug\Romeo.Common.XML</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -29,13 +29,9 @@
     <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <WarningLevel>3</WarningLevel>
-    <DocumentationFile>bin\Release\Romeo.XML</DocumentationFile>
+    <DocumentationFile>bin\Release\Romeo.Common.XML</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="HttpClient">
-      <HintPath>..\packages\Http.fs.1.2.0\lib\net40\HttpClient.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="mscorlib" />
     <Reference Include="FSharp.Core, Version=4.3.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
       <Private>True</Private>
@@ -46,15 +42,8 @@
     <Reference Include="System.Web" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Library.fs" />
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Romeo.Common\Romeo.Common.fsproj">
-      <Name>Romeo.Common</Name>
-      <Project>{d713a68d-cce7-44f0-87e9-690bf0bbd402}</Project>
-      <Private>True</Private>
-    </ProjectReference>
+    <Compile Include="Crypto.fs" />
+    <Compile Include="Utils.fs" />
   </ItemGroup>
   <PropertyGroup>
     <MinimumVisualStudioVersion Condition="'$(MinimumVisualStudioVersion)' == ''">11</MinimumVisualStudioVersion>

@@ -5,7 +5,7 @@ module Client =
     open System
     open System.Text
     open HttpClient
-    open Utils
+    open Common.Utils
 
     type Config = 
       { server_url : string
