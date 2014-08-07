@@ -28,10 +28,10 @@ let place_order (config : Config) (units: Currency) (price : Currency) (order_ty
 On the server side
 ==================
 
-If you happen to use Suave (http://suave.io) to code your API there is a web part for it.'
+If you happen to use Suave (http://suave.io) to code your API there is a web part for it.
 
 ```fsharp
 val verify (secret : string -> string) (success_part : WebPart) : WebPart
 ```
 
-Where `secret` is a function that returns the 'shared_secret' given an `api_key'.
+Where `secret` is a function that returns the `shared_secret` given an `api_key`.
