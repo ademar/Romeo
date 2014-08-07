@@ -1,7 +1,7 @@
 Romeo
 =====
 
-Romeo is an F# implementation of a secure HTTP-based RPC protocol described by Cryptocurrency Exchange Vault Of Satoshi, see https://www.vaultofsatoshi.com/api
+Romeo is an F# implementation of the secure API protocol used by Cryptocurrency Exchange Vault Of Satoshi, see https://www.vaultofsatoshi.com/api
 
 
 Example of usage
