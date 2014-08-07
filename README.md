@@ -37,3 +37,12 @@ val verify (secret : string -> string) (success_part : WebPart) : WebPart
 ```
 
 Where `secret` is a function that returns the `shared_secret` given an `api_key` and `success_part` your API web part.
+
+NuGet
+=====
+
+To install Romeo, run the following command in the Package Manager Console
+
+```bash
+PM> Install-Package Romeo
+```
