@@ -7,6 +7,8 @@ Romeo is an F# implementation of the secure API protocol used by Cryptocurrency 
 Example of usage
 ================
 
+Placing an order at the exchange.
+
 ```fsharp
 open Romeo.Client
 
