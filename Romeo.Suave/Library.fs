@@ -30,7 +30,7 @@ module Suave =
             let str = req.url + Convert.ToChar(0).ToString() + payload
             let signed_data = hmac api_secret str
             if signed_data = api_sign then
-              success_part
+              success_part api_key
             else
               BAD_REQUEST "Invalid signature."
         | None ->
