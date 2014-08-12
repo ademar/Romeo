@@ -1,11 +1,13 @@
 Romeo
 =====
 
-Romeo is an F# implementation of a secure HTTP-based RPC protocol described by Cryptocurrency Exchange Vault Of Satoshi, see https://www.vaultofsatoshi.com/api
+Romeo is an F# implementation of the secure API protocol used by Cryptocurrency Exchange Vault Of Satoshi, see https://www.vaultofsatoshi.com/api
 
 
 Example of usage
 ================
+
+Placing an order at the exchange.
 
 ```fsharp
 open Romeo.Client
@@ -28,10 +30,19 @@ let place_order (config : Config) (units: Currency) (price : Currency) (order_ty
 On the server side
 ==================
 
-If you happen to use Suave (http://suave.io) to code your API there is a web part for it.'
+If you happen to use Suave (http://suave.io) to code your API there is a web part for it.
 
 ```fsharp
 val verify (secret : string -> string) (success_part : WebPart) : WebPart
 ```
 
-Where `secret` is a function that returns the 'shared_secret' given an `api_key'.
+Where `secret` is a function that returns the `shared_secret` given an `api_key` and `success_part` your API web part.
+
+NuGet
+=====
+
+To install Romeo, run the following command in the Package Manager Console
+
+```bash
+PM> Install-Package Romeo
+```
