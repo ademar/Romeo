@@ -17,7 +17,7 @@ module Suave =
     request (fun req ->
       let server_nonce = nonce (get_date())
       let headers = req.headers
-      match headers %% "Api-Key", headers %% "Api-Sign" with
+      match headers %% "api-key", headers %% "api-sign" with
       | Some api_key, Some api_sign ->
         let form = form req
         match form ^^ "nonce" with
@@ -29,12 +29,15 @@ module Suave =
             let payload = encoding.GetString req.raw_form
             let str = req.url + Convert.ToChar(0).ToString() + payload
             let signed_data = hmac api_secret str
-            if signed_data = api_sign then
+            let bytes64 = encoding.GetBytes signed_data
+            let encoded_data = Convert.ToBase64String bytes64
+
+            if encoded_data = api_sign then
               success_part api_key
             else
               BAD_REQUEST "Invalid signature."
         | None ->
-          BAD_REQUEST "Missing authentication headers"
-      | _ ->
+          BAD_REQUEST "Missing 'nonce' parameter"
+      | _, _ ->
         BAD_REQUEST "Missing authentication headers")
 
