@@ -3,6 +3,8 @@ Romeo
 
 Romeo is an F# implementation of the secure API protocol used by Cryptocurrency Exchange Vault Of Satoshi, see https://www.vaultofsatoshi.com/api
 
+keywords: hmac message verification
+
 
 Example of usage
 ================
