@@ -33,7 +33,7 @@ On the server side
 If you happen to use Suave (http://suave.io) to code your API there is a web part for it.
 
 ```fsharp
-val verify (secret : string -> string) (success_part : WebPart) : WebPart
+val verify (secret : string -> string) (success_part : string -> WebPart) : WebPart
 ```
 
 Where `secret` is a function that returns the `shared_secret` given an `api_key` and `success_part` your API web part.
