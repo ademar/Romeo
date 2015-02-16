@@ -4,8 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>49b03d11-d9f7-4cba-a749-d2542ce92867</ProjectGuid>
+    <ProjectGuid>{49B03D11-D9F7-4CBA-A749-D2542CE92867}</ProjectGuid>
     <OutputType>Library</OutputType>
     <RootNamespace>Romeo</RootNamespace>
     <AssemblyName>Romeo</AssemblyName>
@@ -37,26 +36,23 @@
   <Import Project="$(MSBuildExtensionsPath32)\..\Microsoft SDKs\F#\3.0\Framework\v4.0\Microsoft.FSharp.Targets" Condition=" Exists('$(MSBuildExtensionsPath32)\..\Microsoft SDKs\F#\3.0\Framework\v4.0\Microsoft.FSharp.Targets')" />
   <ItemGroup>
     <Compile Include="Library.fs" />
-    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="HttpClient">
-      <HintPath>..\packages\Http.fs.1.4.0\lib\net40\HttpClient.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="mscorlib" />
-    <Reference Include="FSharp.Core, Version=4.3.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Numerics" />
     <Reference Include="System.Web" />
     <ProjectReference Include="..\Romeo.Common\Romeo.Common.fsproj">
       <Name>Romeo.Common</Name>
-      <Project>{d713a68d-cce7-44f0-87e9-690bf0bbd402}</Project>
-      <Private>True</Private>
+      <Project>{D713A68D-CCE7-44F0-87E9-690BF0BBD402}</Project>
     </ProjectReference>
+    <Reference Include="FSharp.Core">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="HttpClient">
+      <HintPath>..\packages\Http.fs.1.5.1\lib\net40\HttpClient.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
@@ -65,4 +61,7 @@
   <Target Name="AfterBuild">
   </Target>
   -->
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
 </Project>

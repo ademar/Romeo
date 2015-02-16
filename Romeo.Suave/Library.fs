@@ -19,14 +19,14 @@ module Suave =
       let headers = req.headers
       match headers %% "api-key", headers %% "api-sign" with
       | Some api_key, Some api_sign ->
-        let form = HttpRequest.form req
+        let form = req.form
         match form ^^ "nonce" with
         | Some client_nonce ->
           if Math.Abs(server_nonce - Convert.ToInt64 client_nonce) > nonce_resolution then
             BAD_REQUEST <| sprintf "Nonce is not within %d microseconds of server time." nonce_resolution
           else
             let api_secret = secret api_key
-            let payload = encoding.GetString req.raw_form
+            let payload = encoding.GetString req.rawForm
             let str = req.url.AbsolutePath + Convert.ToChar(0).ToString() + payload
             let signed_data = hmac api_secret str
             let bytes64 = encoding.GetBytes signed_data
