@@ -18,10 +18,10 @@ module Suave =
       let server_nonce = nonce (get_date())
       let headers = req.headers
       match headers %% "api-key", headers %% "api-sign" with
-      | Some api_key, Some api_sign ->
+      | Choice1Of2 api_key, Choice1Of2 api_sign ->
         let form = req.form
         match form ^^ "nonce" with
-        | Some client_nonce ->
+        | Choice1Of2 client_nonce ->
           if Math.Abs(server_nonce - Convert.ToInt64 client_nonce) > nonce_resolution then
             BAD_REQUEST <| sprintf "Nonce is not within %d microseconds of server time." nonce_resolution
           else
@@ -36,7 +36,7 @@ module Suave =
               success_part api_key
             else
               BAD_REQUEST "Invalid signature."
-        | None ->
+        | Choice2Of2 _ ->
           BAD_REQUEST "Missing 'nonce' parameter"
       | _, _ ->
         BAD_REQUEST "Missing authentication headers")

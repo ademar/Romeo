@@ -36,8 +36,14 @@
   <Import Project="$(MSBuildExtensionsPath32)\..\Microsoft SDKs\F#\3.0\Framework\v4.0\Microsoft.FSharp.Targets" Condition=" Exists('$(MSBuildExtensionsPath32)\..\Microsoft SDKs\F#\3.0\Framework\v4.0\Microsoft.FSharp.Targets')" />
   <ItemGroup>
     <Compile Include="Library.fs" />
+    <None Include="packages.config" />
+    <None Include="app.config" />
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="FSharp.Core">
+      <HintPath>..\packages\FSharp.Core.3.1.2.1\lib\net40\FSharp.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="mscorlib" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -47,9 +53,6 @@
       <Name>Romeo.Common</Name>
       <Project>{D713A68D-CCE7-44F0-87E9-690BF0BBD402}</Project>
     </ProjectReference>
-    <Reference Include="FSharp.Core">
-      <Private>True</Private>
-    </Reference>
     <Reference Include="HttpClient">
       <HintPath>..\packages\Http.fs.1.5.1\lib\net40\HttpClient.dll</HintPath>
     </Reference>
@@ -61,7 +64,4 @@
   <Target Name="AfterBuild">
   </Target>
   -->
-  <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
 </Project>
