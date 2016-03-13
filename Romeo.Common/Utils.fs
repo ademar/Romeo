@@ -41,4 +41,4 @@ module Utils =
 
     let debug flag (message:string) =
       if flag then
-    Console.WriteLine message
+        Console.WriteLine message
