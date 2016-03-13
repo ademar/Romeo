@@ -3,10 +3,9 @@
 module Suave =
 
   open System
-  open Suave.Types
-  open Suave.Http
-  open Suave.Http.Successful
-  open Suave.Http.RequestErrors
+  open Suave
+  open Suave.Successful
+  open Suave.RequestErrors
   open Suave.Utils
   open Common.Utils
 
